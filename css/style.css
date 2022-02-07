@@ -145,6 +145,7 @@ textarea {
 
 /*banner-link*/
 .lead-banner img{
+  width: 80%;
   cursor: pointer;
   transition-duration: 0.3s;
 }
@@ -152,6 +153,11 @@ textarea {
   opacity: 0.6;
   transition-duration: 0.3s;}
 
+  @media (max-width: 639px) {
+    .lead-banner img{
+      width: 70%;
+  }
+  }
 
 /*content*/
 
