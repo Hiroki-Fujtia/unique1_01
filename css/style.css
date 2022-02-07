@@ -133,7 +133,7 @@ textarea {
     width: 100% !important;
   }
   .lead-wrappper .peach-image {
-    width: 65px !important;
+    width: 80px !important;
   }
   .lead-banner {
     text-align: center;
@@ -142,6 +142,16 @@ textarea {
     text-align: center;
   }
 }
+
+/*banner-link*/
+.lead-banner img{
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+.lead-banner:hover img {
+  opacity: 0.6;
+  transition-duration: 0.3s;}
+
 
 /*content*/
 
