@@ -170,14 +170,15 @@ textarea {
 .content-area {
   padding-bottom: 50px;
 }
-.content-image {
-  text-align: center;
-}
+
 .content-image img {
   width: 250px;
 }
 @media (max-width: 639px) {
   .content-area {
+    text-align: center;
+  }
+  .content-image {
     text-align: center;
   }
   .content-image img {
