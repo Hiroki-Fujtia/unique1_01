@@ -143,7 +143,15 @@ textarea {
   }
 }
 
+/*bannerエリア*/
+.banner-area {
+  text-align: left;
+}
 /*banner-link*/
+.lead-banner{
+  margin-left: 0;
+
+}
 .lead-banner img{
   width: 80%;
   cursor: pointer;
@@ -154,6 +162,13 @@ textarea {
   transition-duration: 0.3s;}
 
   @media (max-width: 639px) {
+    .banner-area {
+      text-align: center;
+    }
+    .lead-banner{
+      margin-left: auto;
+      margin-right: auto;
+    }
     .lead-banner img{
       width: 70%;
   }
