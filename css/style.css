@@ -73,23 +73,238 @@ textarea {
   padding: 70px;
 }
 
-@media screen and (max-width: 940px) {
+@media (max-width: 940px) {
   .inner {
     padding: 30px;
   }
 }
 
 /*header*/
+#header {
+  height: 50px; /*高さ指定*/
+  width: 100%; /*横幅指定*/
+  /*以下はレイアウトのためのCSS*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 30px 80px 20px 20px;
+}
+#header h1 {
+  padding-top: 5px;
+}
 
-#header .header-img-sp {
+#g-navi {
+  display: flex;
+  align-items: center;
+}
+@media (max-width:639px) {
+  #g-navi {
+    flex-direction: column;
+  }
+  
+}
+
+.nav01 li:first-child {
+  padding: 5px 60px 5px 30px;
+}
+@media (max-width:639px) {
+  .nav01 li:first-child {
+    padding: 20px;
+  }
+}
+
+.btnarrow {
+  /*矢印の基点とするためrelativeを指定*/
+  position: relative;
+  /*ボタンの形状*/
+  background: #333;
+  padding: 5px 60px 5px 30px;
+  display: inline-block;
+  text-align: center;
+  transition: all 0.2s linear;
+  color: #fff;
+  text-decoration: none;
+  border: transparent 2px solid;
+  border-radius: 30px;
+  outline: none;
+}
+
+/*hoverした際のボタンの形状*/
+.btnarrow:hover {
+  background: #fff;
+  color: #333;
+  border-color: #333;
+}
+
+/*矢印と線の形状*/
+
+.btnarrow:before {
+  content: "";
+  /*絶対配置で線の位置を決める*/
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  /*線の形状*/
+  width: 20px;
+  height: 1px;
+  background: #fff;
+}
+
+.btnarrow::after {
+  content: "";
+  /*絶対配置で矢印の位置を決める*/
+  position: absolute;
+  top: 40%;
+  right: 12px;
+  /*矢印の形状*/
+  border: 4px solid transparent;
+  border-top-width: 4px;
+  border-bottom-width: 4px;
+  border-left-color: #fff;
+  /*アニメーションの指定*/
+  transition: all 0.2s linear;
+}
+
+/*hoverした際の矢印の形状*/
+.btnarrow:hover::before {
+  background: #333;
+  right: 25px;
+}
+
+.btnarrow:hover::after {
+  border-left-color: #333;
+  right: 20px;
+}
+
+/*ハンバーガー*/
+.openbtn-area {
+  display: none;
+}
+@media (max-width:960px) {
+
+.openbtn-area {
+  display: block;
+  position: fixed;
+  z-index: 9999; /*ボタンを最前面に*/
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+}
+
+/*×に変化*/
+.openbtn-area span {
+  display: inline-block;
+  transition: all 0.4s;
+  position: absolute;
+  left: 14px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: #000;
+  width: 45%;
+}
+
+.openbtn-area span:nth-of-type(1) {
+  top: 15px;
+}
+
+.openbtn-area span:nth-of-type(2) {
+  top: 23px;
+}
+
+.openbtn-area span:nth-of-type(3) {
+  top: 31px;
+}
+
+.openbtn-area.active span:nth-of-type(1) {
+  top: 18px;
+  left: 18px;
+  transform: translateY(6px) rotate(-45deg);
+  width: 30%;
+}
+
+.openbtn-area.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.openbtn-area.active span:nth-of-type(3) {
+  top: 30px;
+  left: 18px;
+  transform: translateY(-6px) rotate(45deg);
+  width: 30%;
+}
+}
+
+@media (max-width: 960px) {
+  #g-nav {
+    /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+    position: fixed;
+    z-index: 999;
+    /*ナビのスタート位置と形状*/
+    top: 0;
+    right: -100%;
+    width: 30%;
+    height: 100vh; /*ナビの高さ*/
+    background-color: rgba(238, 143, 185);
+
+    /*動き*/
+    transition: all 0.6s;
+  }
+
+  /*アクティブクラスがついたら位置を0に*/
+  #g-nav.panelactive {
+    right: 0;
+  }
+
+  /*ナビゲーションの縦スクロール*/
+  #g-nav.panelactive #g-nav-list {
+    /*ナビの数が増えた場合縦スクロール*/
+    position: fixed;
+    z-index: 999;
+    width: 30%;
+    height: 100vh; /*表示する高さ*/
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /*横幅が768px以下になった際の指定*/
+  #g-nav,
+  #g-nav.panelactive #g-nav-list {
+    width: 100%;
+  }
+
+  /*ナビゲーション*/
+  #g-nav ul {
+    /*ナビゲーション天地中央揃え*/
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /*リストのレイアウト設定*/
+
+  #g-nav li {
+    list-style: none;
+    text-align: center;
+  }
+
+}
+
+/*vidual-area*/
+
+#vidual-area .vidual-img-sp {
   display: none;
 }
 
 @media (max-width: 639px) {
-  #header .header-img {
+  #vidual-area .vidual-img {
     display: none;
   }
-  #header .header-img-sp {
+  #vidual-area .vidual-img-sp {
     display: block;
     width: 100%;
 
@@ -148,31 +363,48 @@ textarea {
   text-align: left;
 }
 /*banner-link*/
-.lead-banner{
+.lead-banner {
   margin-left: 0;
-
 }
-.lead-banner img{
+.banner-link p {
+  /* text-align: center; */
+}
+
+.reseve-btn {
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  display: inline;
+  padding: 5px 0 0 0;
+  /* font-size: 32px; */
+  font-weight: 600;
+  line-height: 2.2;
+  background-color: rgba(238, 143, 185, 0.5);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.lead-banner img {
   width: 80%;
   cursor: pointer;
+  transition: all 0.3s;
+}
+.lead-banner:hover img,
+.reseve-btn:hover {
+  opacity: 0.6;
   transition-duration: 0.3s;
 }
-.lead-banner:hover img {
-  opacity: 0.6;
-  transition-duration: 0.3s;}
 
-  @media (max-width: 639px) {
-    .banner-area {
-      text-align: center;
-    }
-    .lead-banner{
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .lead-banner img{
-      width: 70%;
+@media (max-width: 639px) {
+  .banner-area {
+    text-align: center;
   }
+  .lead-banner {
+    margin-left: auto;
+    margin-right: auto;
   }
+  .lead-banner img {
+    width: 70%;
+  }
+}
 
 /*content*/
 
