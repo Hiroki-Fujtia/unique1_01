@@ -93,6 +93,11 @@ textarea {
 #header h1 {
   padding-top: 5px;
 }
+@media (max-width:639px){
+  #header h1 {
+    padding-top: 0;
+  }
+}
 
 #g-navi {
   display: flex;
@@ -366,9 +371,7 @@ textarea {
 .lead-banner {
   margin-left: 0;
 }
-.banner-link p {
-  /* text-align: center; */
-}
+
 
 .reseve-btn {
   box-decoration-break: clone;
