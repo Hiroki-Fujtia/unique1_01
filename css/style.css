@@ -354,6 +354,8 @@ textarea {
 
 .lead-wrappper {
   line-height: 2.2;
+  width: calc(100% + 50%);
+
 }
 
 .lead-image img {
@@ -470,7 +472,7 @@ textarea {
 .br-sp {
   display: none;
 }
-@media (max-width: 639px) {
+@media (max-width: 439px) {
   .br-sp {
     display: block;
   }
